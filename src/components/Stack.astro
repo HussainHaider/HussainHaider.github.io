@@ -12,9 +12,9 @@ import { stackGroups, stackSection } from '../data/site';
       note={stackSection.note}
     />
 
+    {/* 8 groups — see Results.astro: explicit 1 / 2 / 4 columns so the last row
+        is never partial and no divider-coloured gap shows through. */}
     <div
-      {/* 8 groups — see Results.astro: explicit 1 / 2 / 4 columns so the last
-          row is never partial and no divider-coloured gap shows through. */}
       class="mt-8 grid grid-cols-1 gap-[2px] border-2 border-[var(--color-divider)] bg-[var(--color-divider)] sm:grid-cols-2 lg:grid-cols-4"
     >
       {

@@ -55,6 +55,32 @@ registered in `src/styles/global.css` via Tailwind's `@theme`, so they generate 
 utilities (`bg-accent-600`, `font-heading`, `text-text`). The original stylesheet is kept
 at `design/modernist-styles.css` for reference.
 
+**Changing the accent colour.** Don't hand-pick the 100–900 steps. Run the generator,
+which rebuilds the ramp in OKLCH from the system's original scale — same lightness per
+step, same absolute chroma clamped to the sRGB gamut — and prints WCAG contrast checks:
+
+```sh
+node tools/accent-ramp.mjs '#0f7a3d'
+```
+
+Paste the output into the `@theme` block, then update the three places the accent is
+hardcoded outside CSS: `theme-color` in `src/layouts/Base.astro`, `public/favicon.svg`,
+and `background` in `design/og-card.html` (then re-render `public/og.png`, below).
+
+### The portrait
+
+`src/assets/hussain-portrait.png` is a crop of `design/hussain-portrait-original.png`,
+centred on the face. The original is 900×1200 — already the 3:4 the design asks for — so
+`object-fit: cover` crops nothing and the subject sits low in the frame. To re-crop
+(adjust `FACE_X` / `FACE_Y` in the script first):
+
+```sh
+node tools/crop-portrait.mjs design/hussain-portrait-original.png src/assets/hussain-portrait.png
+```
+
+If the crop size changes, update `widths={[380, 702]}` in `src/components/Hero.astro` so
+the 2× variant is never upscaled past the source.
+
 ### The social preview card
 
 `public/og.png` (1200×630) is a committed static image. To regenerate after changing the

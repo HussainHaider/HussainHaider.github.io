@@ -16,11 +16,11 @@ import { results, resultsSection } from '../data/site';
       1px gaps over a divider-coloured ground draw the grid rules — no borders
       on the cells themselves, so the lines stay perfectly even as it reflows.
     */}
+    {/* Explicit column counts rather than auto-fit: the rules are drawn by 2px
+        gaps over a divider-coloured ground, so a partial last row shows up as a
+        grey block. 8 cells divide evenly into 1 / 2 / 4 columns, so the grid is
+        always full at every breakpoint. */}
     <div
-      {/* Explicit column counts rather than auto-fit: the rules are drawn by
-          2px gaps over a divider-coloured ground, so a partial last row shows
-          up as a grey block. 8 cells divide evenly into 1 / 2 / 4 columns, so
-          the grid is always full at every breakpoint. */}
       class="mt-8 grid grid-cols-1 gap-[2px] border-2 border-[var(--color-divider)] bg-[var(--color-divider)] sm:grid-cols-2 lg:grid-cols-4"
     >
       {

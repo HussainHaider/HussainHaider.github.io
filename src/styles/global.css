@@ -13,8 +13,7 @@
   --color-bg: #f3f2f2;
   --color-surface: #eae9e9;
   --color-text: #201e1d;
-  --color-accent: #ec3013;
-  --color-accent-2: #e15b47;
+  --color-accent: #0f7a3d;
 
   /* Tonal ramps — generated in OKLCH on one shared lightness scale, so the
      same step of any role matches the others in visual value. */
@@ -28,25 +27,23 @@
   --color-neutral-800: #444141;
   --color-neutral-900: #2d2b2b;
 
-  --color-accent-100: #fff2ef;
-  --color-accent-200: #ffe0d9;
-  --color-accent-300: #ffc4b8;
-  --color-accent-400: #ff9783;
-  --color-accent-500: #ff563c;
-  --color-accent-600: #dd2b0f;
-  --color-accent-700: #ae1800;
-  --color-accent-800: #7c1405;
-  --color-accent-900: #4d170e;
+  /* Green ramp, hue 151.5°. Regenerated in OKLCH from the design system's
+     original red ramp: same lightness at every step, same absolute chroma
+     clamped to the sRGB gamut. Matching red's *share* of the gamut instead
+     would turn the light steps neon, since green reaches much higher chroma.
+     Contrast on --color-bg: accent 4.85, accent-700 5.50, tags 8.78. */
+  --color-accent-100: #eff8f0;
+  --color-accent-200: #d7efdc;
+  --color-accent-300: #b3e2bd;
+  --color-accent-400: #74cf8d;
+  --color-accent-500: #00b65b;
+  --color-accent-600: #009348;
+  --color-accent-700: #007136;
+  --color-accent-800: #005125;
+  --color-accent-900: #003616;
 
-  --color-accent-2-100: #fff2ef;
-  --color-accent-2-200: #ffe0da;
-  --color-accent-2-300: #ffc4b9;
-  --color-accent-2-400: #ff9784;
-  --color-accent-2-500: #ef6853;
-  --color-accent-2-600: #c94b39;
-  --color-accent-2-700: #9e3526;
-  --color-accent-2-800: #71261b;
-  --color-accent-2-900: #471d16;
+  /* The system's --color-accent-2 ramp (a warm coral) is dropped: nothing on
+     this site used it, and it read as a clash against the green. */
 
   /* The system is square throughout — clear Tailwind's default radius scale
      so a stray `rounded-*` can't reintroduce curves. */
