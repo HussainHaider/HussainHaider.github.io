@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://hussainhaider.github.io/sitemap-index.xml
+
+# Machine-readable index for LLM agents — https://llmstxt.org/
+# https://hussainhaider.github.io/llms.txt

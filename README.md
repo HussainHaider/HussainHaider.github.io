@@ -25,7 +25,8 @@ src/
 ├─ styles/global.css   ← Modernist design tokens as a Tailwind @theme
 ├─ layouts/Base.astro  ← <head>, SEO, Open Graph, JSON-LD, font loading
 ├─ components/         ← one component per section
-├─ pages/              ← index.astro, 404.astro
+├─ lib/markdown.ts     ← renders site.ts as Markdown for the LLM endpoints
+├─ pages/              ← index.astro, 404.astro, llms.txt.ts, index.html.md.ts
 └─ assets/             ← portrait (optimised at build by astro:assets)
 
 public/                ← CV, favicon, og.png, robots.txt — served as-is
@@ -80,6 +81,23 @@ node tools/crop-portrait.mjs design/hussain-portrait-original.png src/assets/hus
 
 If the crop size changes, update `widths={[380, 702]}` in `src/components/Hero.astro` so
 the 2× variant is never upscaled past the source.
+
+### llms.txt
+
+The site follows [llmstxt.org](https://llmstxt.org/), so an LLM agent can read it
+without parsing the HTML:
+
+| URL | What it is |
+| :-- | :--------- |
+| `/llms.txt` | The index: H1, blockquote summary, then H2 file lists. `## Optional` marks links that can be skipped for a shorter context. |
+| `/index.html.md` | The full page as Markdown. The spec asks for each page's Markdown twin at the same URL with `.md` appended, using `index.html.md` where the URL has no filename. |
+
+Both are **generated at build time** by `src/pages/llms.txt.ts` and
+`src/pages/index.html.md.ts`, which render from `src/data/site.ts` via
+`src/lib/markdown.ts`. Nothing is restated by hand, so editing `site.ts` updates the
+page and both machine-readable files together — they can't drift.
+
+Neither appears in the sitemap; they're for agents, not search indexing.
 
 ### The social preview card
 
