@@ -1,0 +1,22 @@
+---
+import { person } from '../data/site';
+---
+
+<footer class="border-t-2 border-[var(--color-divider)] px-5 py-7 md:px-10">
+  <div
+    class="mx-auto flex max-w-[1360px] flex-wrap items-center justify-between gap-4"
+  >
+    <div class="font-heading text-[13px] font-extrabold tracking-[0.02em]">
+      {person.name.toUpperCase()}
+    </div>
+    <div class="text-muted text-[12px]">
+      Full-Stack Engineer · Agentic AI · {person.city}, {person.country}
+    </div>
+    <a
+      href="#top"
+      class="text-[12px] font-semibold tracking-[0.08em] text-accent uppercase no-underline hover:text-accent-700"
+    >
+      Back to top ↑
+    </a>
+  </div>
+</footer>

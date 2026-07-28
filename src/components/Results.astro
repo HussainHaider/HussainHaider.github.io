@@ -1,0 +1,44 @@
+---
+import SectionHead from './SectionHead.astro';
+import { results, resultsSection } from '../data/site';
+---
+
+<section id="results" class="mt-20 px-5 md:px-10">
+  <div class="mx-auto max-w-[1360px]">
+    <SectionHead
+      number="01"
+      eyebrow={resultsSection.eyebrow}
+      heading={resultsSection.heading}
+      note={resultsSection.note}
+    />
+
+    {/*
+      1px gaps over a divider-coloured ground draw the grid rules — no borders
+      on the cells themselves, so the lines stay perfectly even as it reflows.
+    */}
+    <div
+      {/* Explicit column counts rather than auto-fit: the rules are drawn by
+          2px gaps over a divider-coloured ground, so a partial last row shows
+          up as a grey block. 8 cells divide evenly into 1 / 2 / 4 columns, so
+          the grid is always full at every breakpoint. */}
+      class="mt-8 grid grid-cols-1 gap-[2px] border-2 border-[var(--color-divider)] bg-[var(--color-divider)] sm:grid-cols-2 lg:grid-cols-4"
+    >
+      {
+        results.map((result) => (
+          <div class="bg-bg px-[22px] pt-7 pb-6">
+            <div class="font-heading text-[clamp(38px,4vw,56px)] leading-none font-extrabold tracking-[-0.04em] text-accent">
+              {result.figure}
+              {result.unit && (
+                <span class="text-[0.45em] tracking-normal">{result.unit}</span>
+              )}
+            </div>
+            <div class="mt-[10px] font-heading text-[15px] font-extrabold">
+              {result.label}
+            </div>
+            <div class="text-muted mt-1 text-[12px]">{result.detail}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

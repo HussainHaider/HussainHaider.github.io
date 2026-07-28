@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { navLinks, person, seo } from '../data/site';
+---
+
+<Base title={`Page not found — ${person.name}`} description={seo.description} noindex>
+  <div class="flex min-h-screen flex-col bg-bg font-body text-text">
+    <Nav />
+    <main id="main" class="flex-1 px-5 md:px-10">
+      <div class="mx-auto max-w-[1360px] pt-14 md:pt-[72px]">
+        <div class="border-t-2 border-[var(--color-divider)] pt-5">
+          <div class="eyebrow">Error</div>
+          <h1
+            class="mt-2 mb-0 text-[clamp(64px,12vw,160px)] leading-[0.9] tracking-[-0.04em] text-accent"
+          >
+            404
+          </h1>
+          <p class="mt-6 mb-0 max-w-[46ch] text-[clamp(17px,1.5vw,22px)] leading-[1.45] text-pretty">
+            That page doesn't exist. It may have moved, or the link that brought
+            you here was wrong.
+          </p>
+
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a
+              href="/"
+              class="inline-flex items-center gap-[10px] bg-accent px-[22px] py-[15px] font-heading text-[15px] font-extrabold text-bg no-underline hover:bg-accent-600 hover:text-bg"
+            >
+              Back to the homepage →
+            </a>
+            <a
+              href={person.linkedin}
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-[10px] border-2 border-text px-[22px] py-[13px] font-heading text-[15px] font-extrabold text-text no-underline hover:bg-text hover:text-bg"
+            >
+              Message on LinkedIn
+            </a>
+          </div>
+
+          <div
+            class="mt-14 mb-20 flex flex-wrap gap-x-8 gap-y-3 border-t-2 border-[var(--color-divider)] pt-5"
+          >
+            <span class="text-muted text-[13px]">Jump to</span>
+            {
+              navLinks.map((link) => (
+                <a
+                  href={`/${link.href}`}
+                  class="text-[13px] font-semibold tracking-[0.06em] text-text uppercase no-underline hover:text-accent"
+                >
+                  {link.label}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Base>

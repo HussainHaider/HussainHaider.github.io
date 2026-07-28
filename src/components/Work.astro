@@ -1,0 +1,24 @@
+---
+import CaseStudy from './CaseStudy.astro';
+import SectionHead from './SectionHead.astro';
+import { caseStudies, workSection } from '../data/site';
+---
+
+<section id="work" class="mt-24 px-5 md:px-10">
+  <div class="mx-auto max-w-[1360px]">
+    <SectionHead
+      number="03"
+      eyebrow={workSection.eyebrow}
+      heading={workSection.heading}
+      headingClass="max-w-[24ch]"
+    />
+
+    <div class="mt-8 flex flex-col gap-11">
+      {
+        caseStudies.map((study, i) => (
+          <CaseStudy study={study} last={i === caseStudies.length - 1} />
+        ))
+      }
+    </div>
+  </div>
+</section>

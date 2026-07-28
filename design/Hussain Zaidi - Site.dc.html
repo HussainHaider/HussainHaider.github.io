@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-f57a36bb-9274-4fb7-88d2-8a62233e92bf/styles.css">
+<script src="_ds/modernist-f57a36bb-9274-4fb7-88d2-8a62233e92bf/_ds_bundle.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: var(--color-bg); }
+  a { color: var(--color-accent); }
+  a:hover { color: var(--color-accent-700); }
+  section[id] { scroll-margin-top: calc(var(--nav-h, 60px) + 12px); }
+</style>
+</helmet>
+
+<div style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);min-height:100vh">
+
+  <nav style="position:sticky;top:0;z-index:50;background:var(--color-bg);border-bottom:2px solid var(--color-divider);display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:12px 40px">
+    <a href="#top" style="font-family:var(--font-heading);font-weight:800;font-size:15px;letter-spacing:-0.01em;color:var(--color-text);text-decoration:none;margin-right:auto;white-space:nowrap">S.&nbsp;HUSSAIN&nbsp;HAIDER&nbsp;ZAIDI</a>
+    <a href="#results" style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text);text-decoration:none;font-weight:600;white-space:nowrap" style-hover="color:var(--color-accent)">Results</a>
+    <a href="#services" style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text);text-decoration:none;font-weight:600;white-space:nowrap" style-hover="color:var(--color-accent)">What I Do</a>
+    <a href="#work" style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text);text-decoration:none;font-weight:600;white-space:nowrap" style-hover="color:var(--color-accent)">Case Studies</a>
+    <a href="#stack" style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text);text-decoration:none;font-weight:600;white-space:nowrap" style-hover="color:var(--color-accent)">Stack</a>
+    <a href="#credentials" style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text);text-decoration:none;font-weight:600;white-space:nowrap" style-hover="color:var(--color-accent)">Credentials</a>
+    <a href="https://www.linkedin.com/in/hh-zaidi" target="_blank" rel="noopener" style="background:var(--color-accent);color:var(--color-bg);font-family:var(--font-heading);font-weight:800;font-size:12px;padding:10px 14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap" style-hover="background:var(--color-accent-600)">Message on LinkedIn →</a>
+  </nav>
+
+  <section id="top" style="padding:0 40px">
+    <div style="max-width:1360px;margin:0 auto;display:flex;flex-wrap:wrap;gap:56px;padding:72px 0 0">
+      <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:28px">
+        <sc-if value="{{ showAvail }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;align-items:center;gap:10px;border:2px solid var(--color-accent);padding:6px 12px;max-width:100%">
+            <span style="width:8px;height:8px;background:var(--color-accent);display:block;flex:none"></span>
+            <span style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Open to senior roles &amp; agent builds</span>
+          </div>
+        </sc-if>
+        <h1 style="font-size:clamp(46px,6.2vw,96px);line-height:0.94;letter-spacing:-0.035em;margin:0;max-width:16ch">AI agents that survive production.</h1>
+        <p style="font-size:clamp(17px,1.5vw,22px);line-height:1.45;max-width:52ch;margin:0;text-wrap:pretty">I build multi-agent AI systems in LangGraph and CrewAI — on top of six years of shipping React, Next.js and Django platforms that carry real traffic, real money and 99.9% uptime targets. Most AI demos die on contact with production. Mine are engineered by someone who has spent a career keeping systems up.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+          <a href="https://www.linkedin.com/in/hh-zaidi" target="_blank" rel="noopener" style="background:var(--color-accent);color:var(--color-bg);font-family:var(--font-heading);font-weight:800;font-size:15px;padding:15px 22px;text-decoration:none;display:inline-flex;align-items:center;gap:10px" style-hover="background:var(--color-accent-600)">Start a conversation →</a>
+          <a href="assets/Syed-Hussain-Haider-Zaidi-CV.pdf" target="_blank" style="border:2px solid var(--color-text);color:var(--color-text);font-family:var(--font-heading);font-weight:800;font-size:15px;padding:13px 22px;text-decoration:none;display:inline-flex;align-items:center;gap:10px" style-hover="background:var(--color-text);color:var(--color-bg)">Download CV (PDF)</a>
+          <a href="https://github.com/HussainHaider" target="_blank" rel="noopener" style="color:var(--color-text);font-family:var(--font-heading);font-weight:800;font-size:15px;padding:13px 4px;text-decoration:none;border-bottom:2px solid var(--color-divider)" style-hover="color:var(--color-accent);border-bottom-color:var(--color-accent)">GitHub</a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:0;border-top:2px solid var(--color-divider);width:100%;margin-top:12px">
+          <div style="flex:1 1 180px;padding:16px 20px 16px 0;border-right:1px solid var(--color-divider)">
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent)">Now</div>
+            <div style="font-size:14px;margin-top:4px">Software Engineer, EF Education First — Budapest</div>
+          </div>
+          <div style="flex:1 1 180px;padding:16px 20px;border-right:1px solid var(--color-divider)">
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent)">Based</div>
+            <div style="font-size:14px;margin-top:4px">Budapest, Hungary — remote friendly, EU work rights</div>
+          </div>
+          <div style="flex:1 1 180px;padding:16px 0 16px 20px">
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent)">Depth</div>
+            <div style="font-size:14px;margin-top:4px">Python / Django + React / Next.js + AWS serverless</div>
+          </div>
+        </div>
+      </div>
+      <div style="flex:0 1 380px;min-width:280px;display:flex;flex-direction:column;gap:0">
+        <div class="grayscale" style="border:2px solid var(--color-text);width:100%">
+          <img src="assets/hussain-portrait.png" alt="Syed Hussain Haider Zaidi" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block">
+        </div>
+        <div style="border:2px solid var(--color-text);border-top:0;padding:14px 16px;display:flex;flex-direction:column;gap:2px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:15px">Syed Hussain Haider Zaidi</div>
+          <div style="font-size:12px;letter-spacing:0.04em" class="text-muted">Full-Stack Engineer · Agentic AI · 6+ years</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" style="padding:0 40px;margin-top:80px">
+    <div style="max-width:1360px;margin:0 auto">
+      <div style="border-top:2px solid var(--color-divider);padding-top:20px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between">
+        <div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent)"><sc-if value="{{ showNums }}" hint-placeholder-val="{{ true }}"><span>01 / </span></sc-if>The receipts</div>
+          <h2 style="font-size:clamp(30px,3.4vw,48px);letter-spacing:-0.025em;margin:8px 0 0">Numbers I have actually moved</h2>
+        </div>
+        <p class="text-muted" style="font-size:14px;max-width:36ch;margin:0">Every figure below is tied to shipped work at a named employer. Ask me about any of them.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2px;background:var(--color-divider);margin-top:32px;border:2px solid var(--color-divider)">
+        <div style="background:var(--color-bg);padding:28px 22px 24px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-0.04em;color:var(--color-accent)">95%</div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:15px;margin-top:10px">Downtime eliminated</div>
+          <div class="text-muted" style="font-size:12px;margin-top:4px">Diagnosed ISR cache invalidation across Cloudflare + Next.js · EF</div>
+        </div>
+        <div style="background:var(--color-bg);padding:28px 22px 24px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-0.04em;color:var(--color-accent)">45%</div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:15px;margin-top:10px">Faster page loads</div>
+          <div class="text-muted" style="font-size:12px;margin-top:4px">ISR → SSG migration deployed to S3 · EF</div>
+        </div>
+        <div style="background:var(--color-bg);padding:28px 22px 24px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-0.04em;color:var(--color-accent)">40%</div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:15px;margin-top:10px">Lower TTFB</div>
+          <div class="text-muted" style="font-size:12px;margin-top:4px">Static delivery + GitHub Actions CI/CD · EF</div>
+        </div>
+        <div style="background:var(--color-bg);padding:28px 22px 24px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-0.04em;color:var(--color-accent)">3×</div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:15px;margin-top:10px">Deploys per day</div>
+          <div class="text-muted" style="font-size:12px;margin-top:4px">Unblocked release cadence at 99.9% uptime · EF</div>
+        </div>
+        <div style="background:var(--color-bg);padding:28px 22px 24px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-0.04em;color:var(--color-accent)">120<span style="font-size:0.45em;letter-spacing:0">ms</span></div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:15px;margin-top:10px">Patient-data retrieval</div>
+          <div class="text-muted" style="font-size:12px;margin-top:4px">Django ORM + PostgreSQL indexing, Q-object search · SARC MedIQ</div>
+        </div>
+        <div style="background:var(--color-bg);padding:28px 22px 24px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-0.04em;color:var(--color-accent)">2.5×</div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:15px;margin-top:10px">Dashboard responsiveness</div>
+          <div class="text-muted" style="font-size:12px;margin-top:4px">Query optimisation on a diagnostic platform · SARC MedIQ</div>
+        </div>
+        <div style="background:var(--color-bg);padding:28px 22px 24px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-0.04em;color:var(--color-accent)">90%</div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:15px;margin-top:10px">Cut from initial load</div>
+          <div class="text-muted" style="font-size:12px;margin-top:4px">Virtualisation + memoisation, re-renders under 50ms · xiQ</div>
+        </div>
+        <div style="background:var(--color-bg);padding:28px 22px 24px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-0.04em;color:var(--color-accent)">40%</div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:15px;margin-top:10px">Fewer post-release bugs</div>
+          <div class="text-muted" style="font-size:12px;margin-top:4px">Jest + RTL test culture and QA process · Carte Blanche</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" style="padding:0 40px;margin-top:96px">
+    <div style="max-width:1360px;margin:0 auto">
+      <div style="border-top:2px solid var(--color-divider);padding-top:20px">
+        <div style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent)"><sc-if value="{{ showNums }}" hint-placeholder-val="{{ true }}"><span>02 / </span></sc-if>What you get</div>
+        <h2 style="font-size:clamp(30px,3.4vw,48px);letter-spacing:-0.025em;margin:8px 0 0;max-width:22ch">Three ways to put me to work</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px;background:var(--color-divider);border:2px solid var(--color-divider);margin-top:32px">
+        <div style="background:var(--color-bg);padding:28px 24px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.1em;color:var(--color-accent)">A</div>
+          <h3 style="font-size:26px;letter-spacing:-0.02em;margin:0">Agentic AI systems</h3>
+          <p style="font-size:14px;line-height:1.55;margin:0;flex:1">Multi-agent workflows that do real analytical work — research, monitoring, summarisation, risk scoring — with tracing and evaluation wired in from day one, not bolted on after the demo.</p>
+          <ul style="margin:0;padding-left:18px;font-size:13px;line-height:1.7;display:flex;flex-direction:column;gap:2px">
+            <li>LangChain / LangGraph orchestration, CrewAI crews</li>
+            <li>LangSmith tracing, evals and cost visibility</li>
+            <li>Tool-calling, retrieval and structured JSON contracts</li>
+            <li>Deployed on AWS Lambda / serverless, not a notebook</li>
+          </ul>
+          <div style="border-top:1px solid var(--color-divider);padding-top:12px;font-size:12px"><span class="text-muted">Proven in </span><strong>MarketMind AI</strong><span class="text-muted"> — a multi-agent investment research assistant.</span></div>
+        </div>
+        <div style="background:var(--color-bg);padding:28px 24px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.1em;color:var(--color-accent)">B</div>
+          <h3 style="font-size:26px;letter-spacing:-0.02em;margin:0">Performance &amp; reliability rescue</h3>
+          <p style="font-size:14px;line-height:1.55;margin:0;flex:1">You have a platform that is slow, flaky, or quietly burning cloud spend. I find the actual root cause in the logs, fix the architecture, and leave the numbers measurably better.</p>
+          <ul style="margin:0;padding-left:18px;font-size:13px;line-height:1.7;display:flex;flex-direction:column;gap:2px">
+            <li>Rendering strategy audits — ISR, SSG, SSR, caching layers</li>
+            <li>CloudWatch / SQS pipeline forensics and cost reduction</li>
+            <li>CI/CD rebuilds with GitHub Actions</li>
+            <li>Edge hardening: WAF, CloudFront, CAPTCHA middleware</li>
+          </ul>
+          <div style="border-top:1px solid var(--color-divider);padding-top:12px;font-size:12px"><span class="text-muted">Proven at </span><strong>EF Education First</strong><span class="text-muted"> — 95% less downtime, 45% faster loads.</span></div>
+        </div>
+        <div style="background:var(--color-bg);padding:28px 24px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.1em;color:var(--color-accent)">C</div>
+          <h3 style="font-size:26px;letter-spacing:-0.02em;margin:0">Full-stack product delivery</h3>
+          <p style="font-size:14px;line-height:1.55;margin:0;flex:1">End-to-end feature ownership in data-intensive products: React and Next.js on the front, Django or Node behind it, tests that hold, documentation that survives your next hire.</p>
+          <ul style="margin:0;padding-left:18px;font-size:13px;line-height:1.7;display:flex;flex-direction:column;gap:2px">
+            <li>React / Next.js / TypeScript with design-system discipline</li>
+            <li>Django &amp; Node REST APIs, event-driven microservices</li>
+            <li>PostgreSQL modelling, indexing and query tuning</li>
+            <li>Jest, React Testing Library, Cypress from the start</li>
+          </ul>
+          <div style="border-top:1px solid var(--color-divider);padding-top:12px;font-size:12px"><span class="text-muted">Proven across </span><strong>four companies</strong><span class="text-muted"> and two continents since 2019.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" style="padding:0 40px;margin-top:96px">
+    <div style="max-width:1360px;margin:0 auto">
+      <div style="border-top:2px solid var(--color-divider);padding-top:20px">
+        <div style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent)"><sc-if value="{{ showNums }}" hint-placeholder-val="{{ true }}"><span>03 / </span></sc-if>Case studies</div>
+        <h2 style="font-size:clamp(30px,3.4vw,48px);letter-spacing:-0.025em;margin:8px 0 0;max-width:24ch">Six years, four companies, one pattern</h2>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:48px;border-top:2px solid var(--color-divider);margin-top:32px;padding-top:28px">
+        <div style="flex:0 1 260px;min-width:220px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:22px;letter-spacing:-0.02em">EF Education First</div>
+          <div class="text-muted" style="font-size:13px;margin-top:6px">Software Engineer</div>
+          <div class="text-muted" style="font-size:13px">Nov 2024 — Present · Budapest</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">
+            <span class="tag tag-accent">Next.js</span><span class="tag tag-accent">AWS Lambda</span><span class="tag tag-accent">Storyblok</span><span class="tag tag-neutral">Cypress</span>
+          </div>
+        </div>
+        <div style="flex:1 1 480px;min-width:0">
+          <h3 style="font-size:clamp(22px,2.2vw,30px);letter-spacing:-0.02em;margin:0 0 12px;max-width:34ch">Made EF's global marketing platform fast, cheap and boringly reliable</h3>
+          <sc-if value="{{ fullDetail }}" hint-placeholder-val="{{ true }}">
+            <ul style="margin:0;padding-left:20px;font-size:14px;line-height:1.65;display:flex;flex-direction:column;gap:8px">
+              <li>Traced chronic outages to ISR cache invalidation between Cloudflare and Next.js — <strong>95% reduction in downtime</strong> across multiple production sites serving High School Exchange Year, Cultural Care, EF Language and EF Academy.</li>
+              <li>Migrated ISR → SSG with S3 delivery and an automated GitHub Actions pipeline: <strong>40% lower TTFB, 45% faster loads, 3× more deploys per day</strong>, 99.9% uptime held.</li>
+              <li>Dug through CloudWatch log groups to find two root causes of a CI/CD bottleneck — unbatched dependency story queuing inflating SQS, and ungrouped SQS-to-Actions dispatch flooding the workflow queue. Batching and queue grouping cut build failures, congestion and AWS spend.</li>
+              <li>Scaled a student photo-voting campaign under an unexpected traffic surge: AWS WAF, CloudFront with secret origin headers, and custom middleware validating Cloudflare Turnstile tokens — direct API Gateway exposure eliminated.</li>
+              <li>Designed event-driven microservices on the Architect framework using CQRS-inspired patterns, with documented interface contracts and independent deployability.</li>
+            </ul>
+          </sc-if>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:48px;border-top:2px solid var(--color-divider);margin-top:44px;padding-top:28px">
+        <div style="flex:0 1 260px;min-width:220px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:22px;letter-spacing:-0.02em">SARC MedIQ</div>
+          <div class="text-muted" style="font-size:13px;margin-top:6px">Full Stack Developer</div>
+          <div class="text-muted" style="font-size:13px">Jan 2023 — Oct 2024 · Remote</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">
+            <span class="tag tag-accent">Django</span><span class="tag tag-accent">React</span><span class="tag tag-accent">Cornerstone3D</span><span class="tag tag-neutral">PostgreSQL</span>
+          </div>
+        </div>
+        <div style="flex:1 1 480px;min-width:0">
+          <h3 style="font-size:clamp(22px,2.2vw,30px);letter-spacing:-0.02em;margin:0 0 12px;max-width:34ch">Gave radiologists back their afternoons</h3>
+          <sc-if value="{{ fullDetail }}" hint-placeholder-val="{{ true }}">
+            <ul style="margin:0;padding-left:20px;font-size:14px;line-height:1.65;display:flex;flex-direction:column;gap:8px">
+              <li>Integrated and customised OHIF Viewer inside a React/Django DICOM platform with Cornerstone3D and Web Workers — <strong>30% better radiologist workflow efficiency</strong> on 3D volume visualisation, and 40% faster diagnosis with advanced manipulation and annotation tooling.</li>
+              <li>Rebuilt the streaming viewer's caching and pre-loading strategy for medical studies: <strong>30% faster image processing</strong>.</li>
+              <li>Tuned patient-data access in a modular Django architecture with PostgreSQL indexing and multi-attribute Q-object search — <strong>120ms retrieval latency, 2.5× more responsive dashboards</strong>.</li>
+              <li>Built a rule-driven report templating engine in React and TypeScript with JSON-schema validation and dynamic mapping — <strong>50% faster reporting</strong>, standardised findings across departments.</li>
+              <li>Introduced Jest and React Testing Library as team standard and mentored engineers on TDD in a high-stakes diagnostic codebase.</li>
+            </ul>
+          </sc-if>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:48px;border-top:2px solid var(--color-divider);margin-top:44px;padding-top:28px">
+        <div style="flex:0 1 260px;min-width:220px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:22px;letter-spacing:-0.02em">xiQ, Inc.</div>
+          <div class="text-muted" style="font-size:13px;margin-top:6px">Senior Frontend Developer</div>
+          <div class="text-muted" style="font-size:13px">Jul 2022 — Dec 2022 · Lahore</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">
+            <span class="tag tag-accent">TypeScript</span><span class="tag tag-accent">React DnD</span><span class="tag tag-neutral">Virtualisation</span>
+          </div>
+        </div>
+        <div style="flex:1 1 480px;min-width:0">
+          <h3 style="font-size:clamp(22px,2.2vw,30px);letter-spacing:-0.02em;margin:0 0 12px;max-width:34ch">Turned a sluggish marketing tool into a workflow engine</h3>
+          <sc-if value="{{ fullDetail }}" hint-placeholder-val="{{ true }}">
+            <ul style="margin:0;padding-left:20px;font-size:14px;line-height:1.65;display:flex;flex-direction:column;gap:8px">
+              <li>Virtualised and memoised heavy list rendering — <strong>90% cut in initial load time</strong>, re-renders under 50ms.</li>
+              <li>Built a behaviour-triggered nurturing tool for hyper-personalised campaigns using React DnD and a depth-first traversal over the workflow graph — <strong>30% gain in user workflow efficiency</strong>.</li>
+            </ul>
+          </sc-if>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:48px;border-top:2px solid var(--color-divider);margin-top:44px;padding-top:28px;border-bottom:2px solid var(--color-divider);padding-bottom:36px">
+        <div style="flex:0 1 260px;min-width:220px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:22px;letter-spacing:-0.02em">Carte Blanche Innovation</div>
+          <div class="text-muted" style="font-size:13px;margin-top:6px">Front-end Developer</div>
+          <div class="text-muted" style="font-size:13px">Feb 2019 — Aug 2022 · Lahore</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">
+            <span class="tag tag-accent">Redux-Saga</span><span class="tag tag-accent">Material UI</span><span class="tag tag-neutral">Spring Boot</span>
+          </div>
+        </div>
+        <div style="flex:1 1 480px;min-width:0">
+          <h3 style="font-size:clamp(22px,2.2vw,30px);letter-spacing:-0.02em;margin:0 0 12px;max-width:34ch">Built an ATS product and the design system underneath it</h3>
+          <sc-if value="{{ fullDetail }}" hint-placeholder-val="{{ true }}">
+            <ul style="margin:0;padding-left:20px;font-size:14px;line-height:1.65;display:flex;flex-direction:column;gap:8px">
+              <li>Led front-end development of HireCinch — a mobile-first, responsive applicant tracking platform in React, Redux and Material UI.</li>
+              <li>Helped establish a shared component library and design system in React and TypeScript that standardised UI patterns and accelerated every feature after it.</li>
+              <li>Engineered REST integrations with Redux-Saga for reliable asynchronous state, plus Java Spring Boot APIs on the server side.</li>
+              <li>Instituted automated testing and QA process — <strong>40% fewer post-release bugs</strong> — and validated product-market fit with user research and Venture Design prototyping before launch.</li>
+            </ul>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack" style="padding:0 40px;margin-top:96px">
+    <div style="max-width:1360px;margin:0 auto">
+      <div style="border-top:2px solid var(--color-divider);padding-top:20px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between">
+        <div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent)"><sc-if value="{{ showNums }}" hint-placeholder-val="{{ true }}"><span>04 / </span></sc-if>Toolset</div>
+          <h2 style="font-size:clamp(30px,3.4vw,48px);letter-spacing:-0.025em;margin:8px 0 0">The stack, without the padding</h2>
+        </div>
+        <p class="text-muted" style="font-size:14px;max-width:34ch;margin:0">Cursor and Claude Code are part of my daily loop — used for leverage, reviewed like any other diff.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;background:var(--color-divider);border:2px solid var(--color-divider);margin-top:32px">
+        <div style="background:var(--color-bg);padding:22px">
+          <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 10px;color:var(--color-accent)">AI &amp; agents</h4>
+          <div style="font-size:14px;line-height:1.7">LangChain · LangGraph · LangSmith · CrewAI · RAG · tool-calling · Cursor · Claude Code</div>
+        </div>
+        <div style="background:var(--color-bg);padding:22px">
+          <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 10px;color:var(--color-accent)">Languages</h4>
+          <div style="font-size:14px;line-height:1.7">Python · TypeScript · JavaScript · SQL · HTML5 · CSS3 · Java (basic)</div>
+        </div>
+        <div style="background:var(--color-bg);padding:22px">
+          <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 10px;color:var(--color-accent)">Frontend</h4>
+          <div style="font-size:14px;line-height:1.7">React · Next.js · Redux · Redux-Saga · Tailwind CSS · Material UI</div>
+        </div>
+        <div style="background:var(--color-bg);padding:22px">
+          <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 10px;color:var(--color-accent)">Backend &amp; architecture</h4>
+          <div style="font-size:14px;line-height:1.7">Django · Node.js · Architect · REST · GraphQL (basic) · microservices · event-driven · CQRS · MVC</div>
+        </div>
+        <div style="background:var(--color-bg);padding:22px">
+          <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 10px;color:var(--color-accent)">Data</h4>
+          <div style="font-size:14px;line-height:1.7">PostgreSQL · ORM query optimisation · indexing · DynamoDB · NoSQL</div>
+        </div>
+        <div style="background:var(--color-bg);padding:22px">
+          <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 10px;color:var(--color-accent)">Cloud &amp; DevOps</h4>
+          <div style="font-size:14px;line-height:1.7">AWS Lambda · S3 · SQS · CloudWatch · CloudFront · WAF · GitHub Actions · Docker · Terraform · Vercel · Cloudflare</div>
+        </div>
+        <div style="background:var(--color-bg);padding:22px">
+          <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 10px;color:var(--color-accent)">Testing</h4>
+          <div style="font-size:14px;line-height:1.7">Jest · React Testing Library · Cypress · TDD practice</div>
+        </div>
+        <div style="background:var(--color-bg);padding:22px">
+          <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 10px;color:var(--color-accent)">Ways of working</h4>
+          <div style="font-size:14px;line-height:1.7">Agile sprints · Jira · Confluence · Figma · Storyblok CMS · design systems · stakeholder alignment</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="credentials" style="padding:0 40px;margin-top:96px">
+    <div style="max-width:1360px;margin:0 auto">
+      <div style="border-top:2px solid var(--color-divider);padding-top:20px">
+        <div style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent)"><sc-if value="{{ showNums }}" hint-placeholder-val="{{ true }}"><span>05 / </span></sc-if>Credentials</div>
+        <h2 style="font-size:clamp(30px,3.4vw,48px);letter-spacing:-0.025em;margin:8px 0 0">Formally trained, continuously retrained</h2>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:0;margin-top:32px;border-top:2px solid var(--color-divider)">
+        <div style="flex:1 1 340px;min-width:0;padding:28px 32px 28px 0;border-right:1px solid var(--color-divider)">
+          <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 18px" class="text-muted">Education</h4>
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <div>
+              <div style="font-family:var(--font-heading);font-weight:800;font-size:18px">M.S. Software Project Management</div>
+              <div style="font-size:13px;margin-top:3px">FAST NUCES, Pakistan · 2021—2023 · GPA 3.7</div>
+              <div class="text-muted" style="font-size:13px;margin-top:6px">Software quality assurance, process management &amp; metrics, requirements engineering.</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-heading);font-weight:800;font-size:18px">B.S. Computer Science</div>
+              <div style="font-size:13px;margin-top:3px">FAST NUCES, Pakistan · 2014—2019</div>
+              <div class="text-muted" style="font-size:13px;margin-top:6px">Data science, database systems, object-oriented analysis and design.</div>
+            </div>
+          </div>
+        </div>
+        <div style="flex:1 1 340px;min-width:0;padding:28px 32px;border-right:1px solid var(--color-divider)">
+          <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 18px" class="text-muted">Certifications</h4>
+          <div style="display:flex;flex-direction:column;gap:0;font-size:14px">
+            <div style="padding:9px 0;border-bottom:1px solid var(--color-divider)">Agentic AI Bootcamp 04</div>
+            <div style="padding:9px 0;border-bottom:1px solid var(--color-divider)">JavaScript Algorithms and Data Structures</div>
+            <div style="padding:9px 0;border-bottom:1px solid var(--color-divider)">Front End Libraries</div>
+            <div style="padding:9px 0;border-bottom:1px solid var(--color-divider)">Running Product Design Sprints</div>
+            <div style="padding:9px 0">Managing an Agile Team</div>
+          </div>
+        </div>
+        <div style="flex:1 1 260px;min-width:0;padding:28px 0 28px 32px">
+          <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 18px" class="text-muted">Beyond the code</h4>
+          <p style="font-size:14px;line-height:1.6;margin:0 0 14px">Active member of <strong>Toastmasters International</strong> — I practise the part of engineering that happens in rooms with stakeholders, not editors.</p>
+          <div style="border-top:1px solid var(--color-divider);padding-top:14px;font-size:14px"><span class="text-muted">Languages · </span>English, Urdu</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="margin-top:96px;background:var(--color-accent);color:var(--color-bg)">
+    <div style="max-width:1360px;margin:0 auto;padding:80px 40px">
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.85">Next step</div>
+      <h2 style="font-size:clamp(38px,6.5vw,104px);line-height:0.92;letter-spacing:-0.04em;margin:18px 0 0;max-width:20ch;color:var(--color-bg)">Hiring, or need an agent that actually ships?</h2>
+      <p style="font-size:clamp(16px,1.6vw,21px);line-height:1.45;max-width:48ch;margin:26px 0 0">Send me a message on LinkedIn. Tell me what is slow, broken, or not built yet — I will tell you straight whether I am the right engineer for it.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:36px">
+        <a href="https://www.linkedin.com/in/hh-zaidi" target="_blank" rel="noopener" style="background:var(--color-bg);color:var(--color-accent-700);font-family:var(--font-heading);font-weight:800;font-size:16px;padding:17px 26px;text-decoration:none;display:inline-flex;align-items:center;gap:10px" style-hover="background:var(--color-text);color:var(--color-bg)">Message on LinkedIn →</a>
+        <a href="assets/Syed-Hussain-Haider-Zaidi-CV.pdf" target="_blank" style="border:2px solid var(--color-bg);color:var(--color-bg);font-family:var(--font-heading);font-weight:800;font-size:16px;padding:15px 26px;text-decoration:none;display:inline-flex;align-items:center;gap:10px" style-hover="background:var(--color-bg);color:var(--color-accent-700)">Download CV</a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:0;margin-top:56px;border-top:2px solid rgba(243,242,242,0.5)">
+        <div style="flex:1 1 220px;padding:20px 24px 20px 0;border-right:1px solid rgba(243,242,242,0.4)">
+          <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;opacity:0.8;font-weight:600">Email</div>
+          <a href="mailto:hussainhaider490@gmail.com" style="color:var(--color-bg);font-size:15px;font-family:var(--font-heading);font-weight:800;text-decoration:none;display:block;margin-top:6px">hussainhaider490@gmail.com</a>
+        </div>
+        <div style="flex:1 1 220px;padding:20px 24px;border-right:1px solid rgba(243,242,242,0.4)">
+          <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;opacity:0.8;font-weight:600">LinkedIn</div>
+          <a href="https://www.linkedin.com/in/hh-zaidi" target="_blank" rel="noopener" style="color:var(--color-bg);font-size:15px;font-family:var(--font-heading);font-weight:800;text-decoration:none;display:block;margin-top:6px">/in/hh-zaidi</a>
+        </div>
+        <div style="flex:1 1 220px;padding:20px 24px;border-right:1px solid rgba(243,242,242,0.4)">
+          <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;opacity:0.8;font-weight:600">GitHub</div>
+          <a href="https://github.com/HussainHaider" target="_blank" rel="noopener" style="color:var(--color-bg);font-size:15px;font-family:var(--font-heading);font-weight:800;text-decoration:none;display:block;margin-top:6px">HussainHaider</a>
+        </div>
+        <div style="flex:1 1 220px;padding:20px 0 20px 24px">
+          <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;opacity:0.8;font-weight:600">Location</div>
+          <div style="font-size:15px;font-family:var(--font-heading);font-weight:800;margin-top:6px">Budapest, Hungary</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:28px 40px;border-top:2px solid var(--color-divider)">
+    <div style="max-width:1360px;margin:0 auto;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.02em">SYED HUSSAIN HAIDER ZAIDI</div>
+      <div class="text-muted" style="font-size:12px">Full-Stack Engineer · Agentic AI · Budapest, Hungary</div>
+      <a href="#top" style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;text-decoration:none;color:var(--color-accent)">Back to top ↑</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#ec3013&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#ec3013&quot;,&quot;#201e1d&quot;,&quot;#1b4dd8&quot;,&quot;#0f7a3d&quot;],&quot;section&quot;:&quot;Look&quot;},&quot;showAvailability&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;sectionNumbers&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;caseDetail&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Full&quot;,&quot;options&quot;:[&quot;Full&quot;,&quot;Condensed&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this.applyAccent();
+    this.measureNav();
+    this._ro = new ResizeObserver(() => this.measureNav());
+    const n = document.querySelector('nav');
+    if (n) this._ro.observe(n);
+  }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+  componentDidUpdate() { this.applyAccent(); this.measureNav(); }
+  measureNav() {
+    const n = document.querySelector('nav');
+    if (n) document.documentElement.style.setProperty('--nav-h', n.offsetHeight + 'px');
+  }
+  applyAccent() {
+    const a = this.props.accent;
+    const r = document.documentElement;
+    if (!a) { ['--color-accent','--color-accent-600','--color-accent-700','--color-accent-100','--color-accent-800'].forEach(k => r.style.removeProperty(k)); return; }
+    r.style.setProperty('--color-accent', a);
+    r.style.setProperty('--color-accent-600', `color-mix(in srgb, ${a} 86%, #000)`);
+    r.style.setProperty('--color-accent-700', `color-mix(in srgb, ${a} 68%, #000)`);
+    r.style.setProperty('--color-accent-800', `color-mix(in srgb, ${a} 50%, #000)`);
+    r.style.setProperty('--color-accent-100', `color-mix(in srgb, ${a} 12%, #fff)`);
+  }
+  renderVals() {
+    return {
+      showAvail: this.props.showAvailability ?? true,
+      showNums: this.props.sectionNumbers ?? true,
+      fullDetail: (this.props.caseDetail ?? 'Full') === 'Full'
+    };
+  }
+}
+</script>
+</body>
+</html>

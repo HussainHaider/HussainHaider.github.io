@@ -1,0 +1,81 @@
+---
+import { contact, person } from '../data/site';
+
+const details = [
+  { label: 'Email', value: person.email, href: `mailto:${person.email}` },
+  { label: 'LinkedIn', value: person.linkedinHandle, href: person.linkedin, external: true },
+  { label: 'GitHub', value: person.githubHandle, href: person.github, external: true },
+  { label: 'Location', value: `${person.city}, ${person.country}` },
+];
+---
+
+<section id="contact" class="mt-24 bg-accent text-bg">
+  <div class="mx-auto max-w-[1360px] px-5 py-16 md:px-10 md:py-20">
+    <div
+      class="font-heading text-[11px] font-extrabold tracking-[0.14em] uppercase opacity-85"
+    >
+      {contact.eyebrow}
+    </div>
+
+    <h2
+      class="mt-[18px] mb-0 max-w-[20ch] text-[clamp(38px,6.5vw,104px)] leading-[0.92] tracking-[-0.04em] text-bg"
+    >
+      {contact.heading}
+    </h2>
+
+    <p class="mt-[26px] mb-0 max-w-[48ch] text-[clamp(16px,1.6vw,21px)] leading-[1.45]">
+      {contact.body}
+    </p>
+
+    <div class="mt-9 flex flex-wrap gap-[14px]">
+      <a
+        href={person.linkedin}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-[10px] bg-bg px-[26px] py-[17px] font-heading text-[16px] font-extrabold text-accent-700 no-underline hover:bg-text hover:text-bg"
+      >
+        Message on LinkedIn →
+      </a>
+      <a
+        href={person.cv}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-[10px] border-2 border-bg px-[26px] py-[15px] font-heading text-[16px] font-extrabold text-bg no-underline hover:bg-bg hover:text-accent-700"
+      >
+        Download CV
+      </a>
+    </div>
+
+    <div class="mt-14 flex flex-wrap border-t-2 border-[rgba(243,242,242,0.5)]">
+      {
+        details.map((detail, i) => (
+          <div
+            class:list={[
+              'flex-[1_1_220px] py-5',
+              i === 0 ? 'pr-6' : 'px-6',
+              i < details.length - 1 && 'md:border-r md:border-[rgba(243,242,242,0.4)]',
+            ]}
+          >
+            <div class="text-[11px] font-semibold tracking-[0.12em] uppercase opacity-80">
+              {detail.label}
+            </div>
+            {detail.href ? (
+              <a
+                href={detail.href}
+                target={detail.external ? '_blank' : undefined}
+                rel={detail.external ? 'noopener' : undefined}
+                class="mt-[6px] block font-heading text-[15px] font-extrabold text-bg no-underline hover:text-bg hover:underline"
+              >
+                {detail.value}
+              </a>
+            ) : (
+              <div class="mt-[6px] font-heading text-[15px] font-extrabold">
+                {detail.value}
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

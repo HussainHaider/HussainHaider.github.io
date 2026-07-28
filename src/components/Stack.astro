@@ -1,0 +1,32 @@
+---
+import SectionHead from './SectionHead.astro';
+import { stackGroups, stackSection } from '../data/site';
+---
+
+<section id="stack" class="mt-24 px-5 md:px-10">
+  <div class="mx-auto max-w-[1360px]">
+    <SectionHead
+      number="04"
+      eyebrow={stackSection.eyebrow}
+      heading={stackSection.heading}
+      note={stackSection.note}
+    />
+
+    <div
+      {/* 8 groups — see Results.astro: explicit 1 / 2 / 4 columns so the last
+          row is never partial and no divider-coloured gap shows through. */}
+      class="mt-8 grid grid-cols-1 gap-[2px] border-2 border-[var(--color-divider)] bg-[var(--color-divider)] sm:grid-cols-2 lg:grid-cols-4"
+    >
+      {
+        stackGroups.map((group) => (
+          <div class="bg-bg p-[22px]">
+            <h4 class="mt-0 mb-[10px] text-[13px] tracking-[0.1em] text-accent uppercase">
+              {group.title}
+            </h4>
+            <div class="text-[14px] leading-[1.7]">{group.items}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

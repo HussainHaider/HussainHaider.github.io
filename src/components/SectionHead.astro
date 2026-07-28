@@ -1,0 +1,38 @@
+---
+import { flags } from '../data/site';
+
+interface Props {
+  /** Section index, rendered as "01 / " before the eyebrow. */
+  number: string;
+  eyebrow: string;
+  heading: string;
+  /** Optional right-aligned note; when set the header becomes a two-column row. */
+  note?: string;
+  /** Max width on the heading, e.g. 'max-w-[22ch]'. */
+  headingClass?: string;
+}
+
+const { number, eyebrow, heading, note, headingClass = '' } = Astro.props;
+---
+
+<div
+  class:list={[
+    'border-t-2 border-[var(--color-divider)] pt-5',
+    note && 'flex flex-wrap items-end justify-between gap-6',
+  ]}
+>
+  <div>
+    <div class="eyebrow">
+      {flags.showSectionNumbers && <span>{number} / </span>}{eyebrow}
+    </div>
+    <h2
+      class:list={[
+        'mt-2 mb-0 text-[clamp(30px,3.4vw,48px)] tracking-[-0.025em]',
+        headingClass,
+      ]}
+    >
+      {heading}
+    </h2>
+  </div>
+  {note && <p class="text-muted m-0 max-w-[36ch] text-[14px]">{note}</p>}
+</div>

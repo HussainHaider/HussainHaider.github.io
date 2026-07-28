@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1200px; height:630px; }
+  body {
+    background:#ec3013; color:#f3f2f2;
+    font-family:"Archivo", system-ui, sans-serif;
+    padding:56px 60px;
+    display:flex; gap:52px; align-items:stretch;
+  }
+  .left { flex:1 1 auto; display:flex; flex-direction:column; min-width:0; }
+  .eyebrow {
+    font-weight:800; font-size:18px; letter-spacing:0.14em; text-transform:uppercase;
+    opacity:0.88;
+  }
+  h1 {
+    font-weight:800; font-size:76px; line-height:0.93; letter-spacing:-0.04em;
+    margin-top:20px;
+  }
+  .spacer { flex:1; min-height:24px; }
+  .rule { border-top:3px solid rgba(243,242,242,0.55); padding-top:20px; display:flex; }
+  .cell { flex:1; min-width:0; }
+  .cell + .cell { border-left:1px solid rgba(243,242,242,0.4); padding-left:26px; }
+  .cell:first-child { padding-right:26px; }
+  .k { font-size:14px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; opacity:0.8; }
+  .v { font-weight:800; font-size:20px; margin-top:7px; letter-spacing:-0.01em; white-space:nowrap; }
+
+  .right { flex:0 0 336px; display:flex; flex-direction:column; }
+  .frame { border:3px solid #f3f2f2; width:336px; }
+  .frame img {
+    display:block; width:100%; aspect-ratio:3/4; object-fit:cover;
+    filter:grayscale(1) contrast(1.08);
+  }
+  .caption {
+    border:3px solid #f3f2f2; border-top:0; padding:12px 14px;
+  }
+  .caption .n { font-weight:800; font-size:19px; letter-spacing:-0.01em; }
+  .caption .r { font-size:13px; margin-top:3px; opacity:0.85; letter-spacing:0.03em; }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="eyebrow">Syed Hussain Haider Zaidi</div>
+    <h1>AI agents<br>that survive<br>production.</h1>
+    <div class="spacer"></div>
+    <div class="rule">
+      <div class="cell">
+        <div class="k">Based</div>
+        <div class="v">Budapest, Hungary</div>
+      </div>
+      <div class="cell">
+        <div class="k">Depth</div>
+        <div class="v">LangGraph · Next.js · Django</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="frame">
+      <img src="PORTRAIT_SRC" alt="">
+    </div>
+    <div class="caption">
+      <div class="n">Full-Stack Engineer</div>
+      <div class="r">Agentic AI · 6+ years · 99.9% uptime</div>
+    </div>
+  </div>
+</body>
+</html>

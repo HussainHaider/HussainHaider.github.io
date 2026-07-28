@@ -1,0 +1,42 @@
+---
+import SectionHead from './SectionHead.astro';
+import { services, servicesSection } from '../data/site';
+---
+
+<section id="services" class="mt-24 px-5 md:px-10">
+  <div class="mx-auto max-w-[1360px]">
+    <SectionHead
+      number="02"
+      eyebrow={servicesSection.eyebrow}
+      heading={servicesSection.heading}
+      headingClass="max-w-[22ch]"
+    />
+
+    <div
+      {/* 3 cards — 1 or 3 columns, never a partial row. */}
+      class="mt-8 grid grid-cols-1 gap-[2px] border-2 border-[var(--color-divider)] bg-[var(--color-divider)] lg:grid-cols-3"
+    >
+      {
+        services.map((service) => (
+          <div class="flex flex-col gap-[14px] bg-bg px-6 py-7">
+            <div class="font-heading text-[13px] font-extrabold tracking-[0.1em] text-accent">
+              {service.key}
+            </div>
+            <h3 class="m-0 text-[26px] tracking-[-0.02em]">{service.title}</h3>
+            <p class="m-0 flex-1 text-[14px] leading-[1.55]">{service.summary}</p>
+            <ul class="m-0 flex list-disc flex-col gap-[2px] pl-[18px] text-[13px] leading-[1.7]">
+              {service.points.map((point) => (
+                <li>{point}</li>
+              ))}
+            </ul>
+            <div class="border-t border-[var(--color-divider)] pt-3 text-[12px]">
+              <span class="text-muted">{service.proof.lead}</span>
+              <strong>{service.proof.strong}</strong>
+              <span class="text-muted">{service.proof.tail}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+import { flags, type CaseStudy } from '../data/site';
+
+interface Props {
+  study: CaseStudy;
+  /** The last card closes the section with a bottom rule. */
+  last?: boolean;
+}
+
+const { study, last = false } = Astro.props;
+---
+
+<article
+  class:list={[
+    'flex flex-wrap gap-8 border-t-2 border-[var(--color-divider)] pt-7 md:gap-12',
+    last && 'border-b-2 border-b-[var(--color-divider)] pb-9',
+  ]}
+>
+  <div class="min-w-[220px] flex-[0_1_260px]">
+    <div class="font-heading text-[22px] font-extrabold tracking-[-0.02em]">
+      {study.company}
+    </div>
+    <div class="text-muted mt-[6px] text-[13px]">{study.role}</div>
+    <div class="text-muted text-[13px]">{study.period}</div>
+    <div class="mt-[14px] flex flex-wrap gap-[6px]">
+      {
+        study.tags.map((tag) => (
+          <span class:list={['tag', `tag-${tag.tone}`]}>{tag.label}</span>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="min-w-0 flex-[1_1_480px]">
+    <h3
+      class="mt-0 mb-3 max-w-[34ch] text-[clamp(22px,2.2vw,30px)] tracking-[-0.02em]"
+    >
+      {study.headline}
+    </h3>
+    {
+      flags.fullCaseDetail && (
+        <ul class="m-0 flex list-disc flex-col gap-2 pl-5 text-[14px] leading-[1.65]">
+          {study.points.map((point) => (
+            <li set:html={point} />
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</article>

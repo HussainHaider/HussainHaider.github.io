@@ -1,0 +1,49 @@
+---
+import { navLinks, person } from '../data/site';
+---
+
+{/*
+  The design put brand + 5 links + CTA on one wrapping row, which on a phone
+  stacks into several rows of sticky chrome and eats the viewport before any
+  content shows.
+
+  The section links need ~900px alongside the brand and the CTA, so they appear
+  only at lg. Below that it's brand + CTA, and below sm both shorten so the row
+  still fits a 320px screen. The nav therefore never wraps, and --nav-h (used by
+  the anchors' scroll-margin-top) is a single constant rather than a
+  per-breakpoint guess.
+*/}
+<nav
+  aria-label="Primary"
+  class="sticky top-0 z-50 flex items-center gap-x-[18px] border-b-2 border-[var(--color-divider)] bg-bg px-5 py-3 md:px-10"
+>
+  <a
+    href="#top"
+    class="mr-auto font-heading text-[15px] font-extrabold tracking-[-0.01em] whitespace-nowrap text-text no-underline hover:text-accent"
+  >
+    <span class="sm:hidden">HUSSAIN ZAIDI</span>
+    <span class="hidden sm:inline">{person.shortName.toUpperCase()}</span>
+  </a>
+
+  {
+    navLinks.map((link) => (
+      <a
+        href={link.href}
+        class="hidden text-[11px] font-semibold tracking-[0.06em] whitespace-nowrap text-text uppercase no-underline hover:text-accent lg:inline"
+      >
+        {link.label}
+      </a>
+    ))
+  }
+
+  <a
+    href={person.linkedin}
+    target="_blank"
+    rel="noopener"
+    {/* No flex gap here: the label is split into two nodes for the responsive
+        short form, and a gap would render as a double space between them. */}
+    class="inline-flex items-center bg-accent px-[14px] py-[10px] font-heading text-[12px] font-extrabold whitespace-nowrap text-bg no-underline hover:bg-accent-600 hover:text-bg"
+  >
+    <span class="hidden sm:inline">Message on&#160;</span>LinkedIn →
+  </a>
+</nav>
