@@ -29,5 +29,11 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // /privacy carries a noindex robots meta; listing it here would send the
+      // opposite signal.
+      filter: (page) => !page.includes('/privacy'),
+    }),
+  ],
 });

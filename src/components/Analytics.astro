@@ -1,0 +1,91 @@
+---
+import { analytics } from '../data/site';
+
+/*
+  Microsoft Clarity — heatmaps, session recordings, click tracking.
+
+  Deliberately no cookie banner. Since 31 Oct 2025 Clarity needs a consent
+  signal for EEA/UK/CH visitors; without one it drops to no-consent mode, which
+  sets no cookies but still records sessions and builds heatmaps. What it loses
+  is cross-session stitching — pages per session, entry/exit pages, returning
+  users. This is a one-page site, so all but "returning users" were already
+  meaningless. A banner would cost more than it buys here.
+
+  Skipped on dev builds so `astro dev` stays free of third-party requests, and
+  skipped entirely when no project ID is configured.
+*/
+const enabled = import.meta.env.PROD && analytics.clarityProjectId !== '';
+---
+
+{
+  enabled && (
+    <script is:inline define:vars={{ clarityProjectId: analytics.clarityProjectId }}>
+      /*
+        Vendor loader, verbatim from Clarity. Must be `is:inline` — anything
+        else and Astro bundles and relocates it, which breaks the tag. It
+        defines window.clarity synchronously and queues calls on clarity.q, so
+        the wiring below can fire events before the tag finishes downloading.
+      */
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+        t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, 'clarity', 'script', clarityProjectId);
+
+      /*
+        Every CTA is derived from the DOM rather than tagged in markup, so no
+        component needs an analytics attribute and any LinkedIn or CV link
+        added later is tracked for free.
+      */
+      const placementOf = (el) =>
+        el.closest('nav') ? 'nav'
+        : el.closest('footer') ? 'footer'
+        : (el.closest('section[id]')?.id ?? 'page');
+
+      const actionOf = (a) => {
+        if (a.href.toLowerCase().endsWith('.pdf')) return 'cv_download';
+        if (a.href.includes('linkedin.com')) return 'linkedin_click';
+        if (a.href.includes('github.com')) return 'github_click';
+        if ((a.getAttribute('href') ?? '').startsWith('mailto:')) return 'email_click';
+        return null;
+      };
+
+      /*
+        LinkedIn is the target of four separate CTAs, so the placement is baked
+        into the event name — Clarity's event API takes a name and nothing else.
+        The matching `set` call adds a custom tag, which is what makes it
+        possible to filter recordings down to "people who clicked the hero CV".
+      */
+      document.addEventListener('click', (e) => {
+        const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
+        if (!a) return;
+        const action = actionOf(a);
+        if (!action) return;
+        const name = action + '__' + placementOf(a);
+        window.clarity?.('event', name);
+        window.clarity?.('set', 'last_cta', name);
+      });
+
+      /* Scroll depth: one event the first time each section crosses the middle
+         of the viewport, giving a drop-off funnel down the page. */
+      addEventListener('DOMContentLoaded', () => {
+        const seen = new Set();
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting || seen.has(entry.target.id)) continue;
+              seen.add(entry.target.id);
+              window.clarity?.('event', 'view__' + entry.target.id);
+              io.unobserve(entry.target);
+            }
+          },
+          /* threshold:0 with an inset root — a section taller than the viewport
+             can never reach a percentage threshold, so fire on the middle band
+             instead. */
+          { threshold: 0, rootMargin: '-25% 0px -25% 0px' },
+        );
+        for (const section of document.querySelectorAll('section[id]')) io.observe(section);
+      });
+    </script>
+  )
+}

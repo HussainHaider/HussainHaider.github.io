@@ -1,0 +1,105 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { person } from '../data/site';
+
+/*
+  No cookie banner ships with this site, but GDPR transparency still applies —
+  Clarity processes IP addresses and behavioural data even in no-consent mode.
+  This page is that notice. Kept out of search results and the sitemap.
+*/
+const sections = [
+  {
+    heading: 'What is collected',
+    body: `This site uses Microsoft Clarity to understand how visitors read it. Clarity records
+      how pages are viewed and interacted with — mouse movement, scrolling, clicks, plus
+      standard technical details like browser, device type, approximate location by country
+      and referring site. That data builds aggregate heatmaps and session playbacks.`,
+  },
+  {
+    heading: 'What is not collected',
+    body: `There are no forms, no sign-in and no payments on this site, so no name, email
+      address or any other detail you type is ever captured. Nothing is sold, and the data is
+      not used for advertising or to build a profile of you.`,
+  },
+  {
+    heading: 'Cookies',
+    body: `For visitors in the EEA, the UK and Switzerland, no consent signal is sent to
+      Clarity, which means it runs in no-consent mode and sets no cookies at all. Elsewhere,
+      Clarity sets its own first-party cookie to recognise a returning visit.`,
+  },
+  {
+    heading: 'How long it is kept',
+    body: `Session recordings are retained by Microsoft for 90 days and then deleted.
+      Aggregate metrics such as heatmaps and click counts are kept longer.`,
+  },
+  {
+    heading: 'Opting out',
+    body: `Any browser setting, extension or tracking-protection feature that blocks analytics
+      scripts will stop this collection completely, and nothing on the site depends on it —
+      every page works exactly the same with the script blocked.`,
+  },
+];
+---
+
+<Base
+  title={`Privacy — ${person.name}`}
+  description="How this site uses analytics, what it collects, and how long it is kept."
+  noindex
+>
+  <div class="flex min-h-screen flex-col bg-bg font-body text-text">
+    <Nav />
+    <main id="main" class="flex-1 px-5 md:px-10">
+      <div class="mx-auto max-w-[1360px] pt-14 md:pt-[72px]">
+        <div class="border-t-2 border-[var(--color-divider)] pt-5">
+          <div class="eyebrow">Privacy</div>
+          <h1
+            class="mt-2 mb-0 max-w-[16ch] text-[clamp(38px,6.5vw,88px)] leading-[0.94] tracking-[-0.035em]"
+          >
+            What this site measures.
+          </h1>
+          <p
+            class="mt-6 mb-0 max-w-[52ch] text-[clamp(17px,1.5vw,22px)] leading-[1.45] text-pretty"
+          >
+            No account, no newsletter, no tracking pixels for advertisers. Just enough
+            analytics to know which parts of this page are worth keeping.
+          </p>
+
+          <div class="mt-14 flex flex-col border-t-2 border-[var(--color-divider)]">
+            {
+              sections.map((section) => (
+                <div class="flex flex-wrap gap-x-10 gap-y-3 border-b border-[var(--color-divider)] py-7">
+                  <h2 class="m-0 flex-[1_1_220px] font-heading text-[15px] font-extrabold tracking-[-0.01em]">
+                    {section.heading}
+                  </h2>
+                  <p class="m-0 flex-[3_1_420px] text-[15px] leading-[1.6] text-pretty">
+                    {section.body}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="mt-9 mb-20 flex flex-wrap gap-x-8 gap-y-3">
+            <a
+              href="https://privacy.microsoft.com/privacystatement"
+              target="_blank"
+              rel="noopener"
+              class="text-[13px] font-semibold tracking-[0.06em] text-text uppercase no-underline hover:text-accent"
+            >
+              Microsoft privacy statement →
+            </a>
+            <a
+              href={`mailto:${person.email}`}
+              class="text-[13px] font-semibold tracking-[0.06em] text-text uppercase no-underline hover:text-accent"
+            >
+              Questions? Email me
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Base>
