@@ -39,6 +39,19 @@ export const flags = {
   fullCaseDetail: true,
 } as const;
 
+/* ── Analytics ───────────────────────────────────────────────────────────────
+   Microsoft Clarity: click/scroll heatmaps and session recordings. The project
+   ID is not a secret — it ships in the page source of every site using Clarity
+   — so it lives here rather than in an env var, and CI needs no extra wiring.
+
+   An empty string disables tracking entirely. Tracking is also skipped on dev
+   builds, so this only ever fires on the deployed site. */
+
+export const analytics = {
+  /** From clarity.microsoft.com → Settings → Overview. Empty string = off. */
+  clarityProjectId: 'xw5wnpvljc',
+} as const;
+
 /* ── Navigation ──────────────────────────────────────────────────────────── */
 
 export const navLinks = [
