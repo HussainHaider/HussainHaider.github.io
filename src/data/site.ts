@@ -49,7 +49,7 @@ export const flags = {
 
 export const analytics = {
   /** From clarity.microsoft.com → Settings → Overview. Empty string = off. */
-  clarityProjectId: '',
+  clarityProjectId: 'xw5wnpvljc',
 } as const;
 
 /* ── Navigation ──────────────────────────────────────────────────────────── */
