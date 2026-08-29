@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
-import { person } from '../data/site';
+import { person, writingSection } from '../data/site';
 import { SITE_URL, summary } from '../lib/markdown';
+import { getMediumPosts } from '../lib/medium';
 
 /**
  * /llms.txt — https://llmstxt.org/
@@ -10,7 +11,9 @@ import { SITE_URL, summary } from '../lib/markdown';
  * The `## Optional` heading is special — its links may be skipped when a
  * shorter context is needed.
  */
-export const GET: APIRoute = () => {
+export const GET: APIRoute = async () => {
+  const posts = await getMediumPosts(person.medium, writingSection.limit);
+
   const body = `# ${person.name}
 
 > ${summary}
@@ -28,6 +31,11 @@ can be read instead of the rendered HTML.
 
 - [LinkedIn](${person.linkedin}): Primary contact channel.
 - [GitHub](${person.github}): Open-source work and the source of this site.
+- [Medium](${person.medium}): Technical writing, pulled into the site's writing section at build time.
+
+## Writing
+
+${posts.map((post) => `- [${post.title}](${post.url}): ${post.dateLabel}. ${post.excerpt}`).join('\n')}
 
 ## Optional
 

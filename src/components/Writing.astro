@@ -1,0 +1,90 @@
+---
+import SectionHead from './SectionHead.astro';
+import { person, writingSection } from '../data/site';
+import { getMediumPosts } from '../lib/medium';
+
+// Fetched at build time, so the page ships as static HTML with no client-side
+// request to Medium — and no third-party JS in the user's browser.
+const posts = await getMediumPosts(person.medium, writingSection.limit);
+---
+
+<section id="writing" class="mt-24 px-5 md:px-10">
+  <div class="mx-auto max-w-[1360px]">
+    <SectionHead
+      number="06"
+      eyebrow={writingSection.eyebrow}
+      heading={writingSection.heading}
+      note={writingSection.note}
+    />
+
+    {
+      posts.length === 0 ? (
+        <p class="text-muted mt-8 border-t-2 border-[var(--color-divider)] pt-7 text-[15px]">
+          {writingSection.empty}
+        </p>
+      ) : (
+        <div class="mt-8 flex flex-col">
+          {posts.map((post, i) => (
+            <article
+              class:list={[
+                'border-t-2 border-[var(--color-divider)]',
+                i === posts.length - 1 && 'border-b-2 border-b-[var(--color-divider)]',
+              ]}
+            >
+              {/* The whole row is the link — a bigger target than the title
+                  alone, and it keeps one link per post for screen readers. */}
+              <a
+                href={post.url}
+                target="_blank"
+                rel="noopener"
+                class="group flex flex-wrap gap-6 py-7 text-text no-underline md:gap-12"
+              >
+                <div class="min-w-[220px] flex-[0_1_260px]">
+                  <time
+                    datetime={post.date}
+                    class="font-heading text-[13px] font-extrabold tracking-[0.08em] uppercase"
+                  >
+                    {post.dateLabel}
+                  </time>
+                  {post.readingMinutes > 0 && (
+                    <div class="text-muted mt-[6px] text-[13px]">
+                      {post.readingMinutes} min read
+                    </div>
+                  )}
+                  {post.tags.length > 0 && (
+                    <div class="mt-[14px] flex flex-wrap gap-[6px]">
+                      {post.tags.map((tag) => (
+                        <span class="tag tag-neutral">{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <div class="min-w-0 flex-[1_1_480px]">
+                  <h3 class="mt-0 mb-3 max-w-[34ch] text-[clamp(20px,2vw,28px)] tracking-[-0.02em] group-hover:text-accent">
+                    {post.title}
+                  </h3>
+                  <p class="text-muted m-0 max-w-[68ch] text-[14px] leading-[1.65]">
+                    {post.excerpt}
+                  </p>
+                  <span class="mt-4 inline-block font-heading text-[13px] font-extrabold text-accent">
+                    Read on Medium →
+                  </span>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      )
+    }
+
+    <a
+      href={person.medium}
+      target="_blank"
+      rel="noopener"
+      class="mt-7 inline-flex items-center border-2 border-text px-[22px] py-[13px] font-heading text-[14px] font-extrabold text-text no-underline hover:bg-text hover:text-bg"
+    >
+      {writingSection.cta} →
+    </a>
+  </div>
+</section>

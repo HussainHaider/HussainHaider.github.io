@@ -26,6 +26,7 @@ src/
 ├─ layouts/Base.astro  ← <head>, SEO, Open Graph, JSON-LD, font loading
 ├─ components/         ← one component per section
 ├─ lib/markdown.ts     ← renders site.ts as Markdown for the LLM endpoints
+├─ lib/medium.ts       ← pulls the Medium RSS feed at build time (writing section)
 ├─ pages/              ← index.astro, 404.astro, llms.txt.ts, index.html.md.ts
 └─ assets/             ← portrait (optimised at build by astro:assets)
 
@@ -48,6 +49,22 @@ flags.fullCaseDetail      // full case-study bullets vs. headline only
 ```
 
 Turn the availability badge off when you land a role — no markup changes needed.
+
+### The writing section
+
+The posts under **06 / Writing** are not stored in this repo. `src/lib/medium.ts` fetches
+`person.medium`'s RSS feed at build time, parses title, date, tags, reading time and the
+opening paragraph, and the same posts flow into `/index.html.md` and `/llms.txt`.
+
+**Publishing a post is the only step** — nothing here needs editing. Deploys run on every
+push plus a weekly cron (Mondays 06:00 UTC) in the deploy workflow, so a new post appears
+on the site within a week without a commit. To publish it immediately, run the workflow
+from the Actions tab.
+
+If the feed can't be reached during a build, `FALLBACK_POSTS` in `src/lib/medium.ts` is
+used instead so the section never ships empty; it is a stale snapshot by design, and the
+live feed wins whenever it is reachable. Section copy and the post limit live in
+`writingSection` in `src/data/site.ts`.
 
 ### Design tokens
 
@@ -130,7 +147,8 @@ There is no automated re-export. To pull a design change through:
 ## Deployment
 
 Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site and
-publishes it to GitHub Pages. No branch or path configuration — the repository's Pages
+publishes it to GitHub Pages. The same workflow runs weekly on a cron so new Medium posts
+reach the site without a commit, and can be run on demand from the Actions tab. No branch or path configuration — the repository's Pages
 source is set to **GitHub Actions**.
 
 `package-lock.json` must stay committed; `withastro/action` installs from it.

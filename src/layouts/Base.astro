@@ -33,7 +33,7 @@ const personSchema = {
     addressLocality: person.city,
     addressCountry: person.countryCode,
   },
-  sameAs: [person.linkedin, person.github],
+  sameAs: [person.linkedin, person.github, person.medium],
   knowsAbout: stackGroups.flatMap((g) => g.items.split(' · ').map((s) => s.trim())),
 };
 ---

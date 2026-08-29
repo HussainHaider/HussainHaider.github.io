@@ -4,6 +4,7 @@
  * served to LLM agents can't drift from the rendered page.
  */
 
+import type { MediumPost } from './medium';
 import {
   caseStudies,
   certifications,
@@ -20,6 +21,7 @@ import {
   stackGroups,
   stackSection,
   workSection,
+  writingSection,
 } from '../data/site';
 
 /** The data allows inline <strong> for emphasis inside case-study bullets. */
@@ -42,7 +44,11 @@ export const summary =
   `${person.jobTitle} at ${person.employer}` +
   (flags.showAvailability ? '; open to senior roles and agent builds.' : '.');
 
-export function renderSiteMarkdown(): string {
+/**
+ * @param posts Medium posts from the RSS feed. Passed in rather than fetched
+ *   here so this stays synchronous and side-effect free.
+ */
+export function renderSiteMarkdown(posts: MediumPost[] = []): string {
   const out: string[] = [];
   const push = (...lines: string[]) => out.push(...lines, '');
 
@@ -62,6 +68,7 @@ export function renderSiteMarkdown(): string {
     `- Email: ${person.email}`,
     `- LinkedIn: ${person.linkedin}`,
     `- GitHub: ${person.github}`,
+    `- Medium: ${person.medium}`,
     `- Location: ${person.city}, ${person.country}`,
     `- CV (PDF): ${SITE_URL}${person.cv}`,
   );
@@ -112,6 +119,18 @@ export function renderSiteMarkdown(): string {
     '',
     `Languages: ${credentialsSection.languages}`,
   );
+
+  if (posts.length) {
+    push(`## ${writingSection.heading}`);
+    push(`${writingSection.note} Profile: ${person.medium}`);
+    for (const post of posts) {
+      push(
+        `- [${post.title}](${post.url}) — ${post.dateLabel}` +
+          (post.readingMinutes ? `, ${post.readingMinutes} min read` : '') +
+          `. ${post.excerpt}`,
+      );
+    }
+  }
 
   push(`## ${contact.heading}`);
   push(contact.body);
