@@ -5,6 +5,10 @@ on:
     branches: [main]
   # Lets you redeploy from the Actions tab without pushing a commit.
   workflow_dispatch:
+  # The writing section is built from the Medium RSS feed, so a weekly rebuild
+  # publishes new posts to the site without anyone touching this repo.
+  schedule:
+    - cron: '0 6 * * 1'
 
 permissions:
   contents: read

@@ -22,6 +22,8 @@ export const person = {
   linkedinHandle: '/in/hh-zaidi',
   github: 'https://github.com/HussainHaider',
   githubHandle: 'HussainHaider',
+  medium: 'https://medium.com/@HussainZaidi14',
+  mediumHandle: '@HussainZaidi14',
   cv: '/Syed-Hussain-Haider-Zaidi-CV.pdf',
 } as const;
 
@@ -60,6 +62,7 @@ export const navLinks = [
   { href: '#work', label: 'Case Studies' },
   { href: '#stack', label: 'Stack' },
   { href: '#credentials', label: 'Credentials' },
+  { href: '#writing', label: 'Writing' },
 ] as const;
 
 /* ── Hero ────────────────────────────────────────────────────────────────── */
@@ -376,6 +379,23 @@ export const credentialsSection = {
   beyondBody:
     'Active member of <strong>Toastmasters International</strong> — I practise the part of engineering that happens in rooms with stakeholders, not editors.',
   languages: 'English, Urdu',
+} as const;
+
+/* ── 06 · Writing ────────────────────────────────────────────────────────────
+   The posts themselves are not listed here: they are read from the Medium RSS
+   feed at build time (see src/lib/medium.ts), so publishing on Medium is the
+   only step needed to get a post onto this page. Only the framing copy lives
+   here, like every other section. */
+
+export const writingSection = {
+  eyebrow: 'Writing',
+  heading: 'Notes from the build',
+  note: 'Published on Medium — pulled in automatically, newest first.',
+  /** Shown when the feed is reachable but empty. */
+  empty: 'Nothing published yet. New posts will appear here automatically.',
+  cta: 'All posts on Medium',
+  /** Most recent posts shown on the page; the rest stay on Medium. */
+  limit: 6,
 } as const;
 
 /* ── Contact ─────────────────────────────────────────────────────────────── */
